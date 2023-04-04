@@ -3,7 +3,7 @@ module.exports = {
         "es2021": true,
         "node": true
     },
-    extends: ['airbnb-typescript/base'],
+    // extends: ['airbnb-typescript/base'],
     parser: "@typescript-eslint/parser",
     parserOptions: {
         project: './tsconfig.json',
@@ -13,5 +13,7 @@ module.exports = {
     plugins: [
         "@typescript-eslint"
     ],
-    rules: {},
+    rules: {
+        "indent": ["error", "tab"]
+    },
 };
