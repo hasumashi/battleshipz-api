@@ -9,8 +9,8 @@
   "scripts": {
     "_old_start": "npm run build && node dist/index.js",
     "start": "node src/index.js",
-    "start:dev": "nodemon",
-    "build": "rimraf ./dist && tsc",
+    "start:dev": "nodemon src/index.js",
+    "_old_build": "rimraf ./dist && tsc",
     "lint": "eslint src --ext .ts,.js",
     "test": "jest"
   },
@@ -30,24 +30,23 @@
     "url": "https://github.com/hasumashi/battleshipz-api/issues"
   },
   "homepage": "https://github.com/hasumashi/battleshipz-api#readme",
-  "devDependencies": {
-    "@types/jest": "^26.0.15",
-    "@types/node": "^14.14.7",
-    "@types/socket.io": "2.1.13",
-    "@typescript-eslint/eslint-plugin": "^4.7.0",
-    "@typescript-eslint/parser": "^4.7.0",
-    "eslint": "^7.13.0",
-    "eslint-config-airbnb-typescript": "^12.0.0",
-    "eslint-plugin-import": "^2.22.1",
-    "jest": "^26.6.3",
-    "nodemon": "^2.0.6",
-    "rimraf": "^3.0.2",
-    "ts-node": "^9.0.0",
-    "typescript": "^4.0.5"
-  },
   "dependencies": {
     "express": "^4.18.2",
     "nanoid": "^3.3.6",
-    "socket.io": "~4.0.0"
+    "socket.io": "^4.6.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.0",
+    "@types/node": "^18.15.11",
+    "@types/socket.io": "3.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.57.1",
+    "@typescript-eslint/parser": "^5.57.1",
+    "eslint": "^8.37.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "jest": "^29.5.0",
+    "nodemon": "^2.0.22",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.3"
   }
 }
