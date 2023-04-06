@@ -1,11 +1,17 @@
-const express = require('express');
+const express = require("express");
+const { createServer } = require("http");
+const { Server } = require("socket.io");
+
 const app = express();
-const http = require('http');
-const server = http.createServer(app);
-const io = require('socket.io')(server);
+const httpServer = createServer(app);
+const io = new Server(httpServer, {
+	cors: {
+		origin: '*',
+	}
+});
+
 const config = require('./config');
 const { Game } = require('./game');
-const { nanoid } = require('nanoid');
 
 
 let usersConnected = 0;
@@ -43,6 +49,6 @@ app.get('/', (req, res) => {
 	res.send('<h1>Battleshipz API</h1>');
 });
 
-server.listen(config.port, () => {
+httpServer.listen(config.port, () => {
 	console.log('listening on', config.port);
 });
