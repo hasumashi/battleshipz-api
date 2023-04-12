@@ -31,12 +31,20 @@ class Game {
 			console.error('Game already has 2 players!');
 			return;
 		}
+		if (this.sockets.includes(socket)) {
+			console.warn('Socket already joined this game', socket, this.id);
+			return;
+		}
 		socket.join(this.socketIoRoom);
 		this.sockets.push(socket);
 		if (this.isReady()) {
 			this.io.to(this.socketIoRoom).emit('game:ready', this.id);
 			console.log('game:ready', this.id);
 		}
+		socket.on('disconnect', () => {
+			console.warn(`User from game ${this.id} has disconected: ${socket.id}`);
+			socket.to(this.socketIoRoom).emit('opponent:disconnected');
+		});
 	}
 }
 
